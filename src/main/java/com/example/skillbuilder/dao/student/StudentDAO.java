@@ -11,20 +11,19 @@ public interface StudentDAO {
 
 	Student isStudentExist(Student student) throws Exception;
 
-	boolean isfirstNameExist(String firstName) throws Exception;
-
 	String forgotPassword(String studentId, String encriptString) throws Exception;
-
-	boolean isStudentNameExist(String studentName) throws Exception;
 
 	List<Student> getStudents() throws Exception;
 
 	Student getStudent(String studentfirstName) throws Exception;
 
-	Response deleteStudent(String StudentId) throws Exception;
-
 	Response addStudent(Student Student) throws Exception;
 
 	Student authenticate(Student student)throws Exception;
 
+//	boolean isfirstNameExist(String firstName) throws Exception;
+
+//	boolean isStudentNameExist(String studentName) throws Exception;
+
+//	Response deleteStudent(String StudentId) throws Exception;
 }

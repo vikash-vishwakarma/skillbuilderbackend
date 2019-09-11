@@ -35,7 +35,7 @@ public class StudentController {
 	StudentDAO studentDAO;
 
 	
-/*--------------------------------------------Add Parent-----------------------------------------*/
+/*--------------------------------------------Add Student-----------------------------------------*/
 	
 	
 	@RequestMapping(value = "/student", method = RequestMethod.POST, produces = "application/json")
@@ -50,7 +50,7 @@ public class StudentController {
 		
 	}
 	
-	/*--------------------------------------------update Parent -----------------------------------------*/
+	/*--------------------------------------------update Student -----------------------------------------*/
 
 	@RequestMapping(value = "/updateStudent", method = RequestMethod.PUT, produces = "application/json")
 	public Response updateStudent(@RequestBody StudentModel studentModel, HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +63,7 @@ public class StudentController {
 	}
 	
 	/*--------------------------------------------Student login -----------------------------------------*/
-	@RequestMapping(value="/login",method = RequestMethod.POST, produces ="application/json")
+	@RequestMapping(value="/login",method = RequestMethod.GET, produces ="application/json")
 	
 	public @ResponseBody String authenticate(@RequestBody StudentModel studentModel, HttpServletRequest request, HttpServletResponse response)
 			throws Exception 
@@ -109,7 +109,7 @@ public class StudentController {
 		return CommonUtils.getJson(res);
 	}
 		
-	/*--------------------------------------------Parent status -----------------------------------------*/
+	/*--------------------------------------------student status -----------------------------------------*/
 
 	@RequestMapping(value = "/StudentStatus", method = RequestMethod.PUT, produces = "application/json", consumes = "application/json")
 

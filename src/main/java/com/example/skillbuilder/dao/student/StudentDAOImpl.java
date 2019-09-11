@@ -45,41 +45,41 @@ public class StudentDAOImpl implements StudentDAO {
 		
 	}
 	
-	@Override
-	public Response deleteStudent (String StudentId) throws Exception{
-		
-		Response response = CommonUtils.getResponseObject("Delete Student data");
-		try {
-			
-
-			Student student=getStudent(StudentId);
-			student.setActive(false);
-		
-			entityManager.flush();
-
-			response.setStatus(StatusCode.SUCCESS.name());	
-		} 
-		catch(Exception ex)
-		{
-			logger.error("Exception in deleteStudent", ex);
-			response.setStatus(StatusCode.ERROR.name());
-			response.setErrors(ex.getMessage());
-		}
-		return response;	
-	}
+//	@Override
+//	public Response deleteStudent (String StudentId) throws Exception{
+//		
+//		Response response = CommonUtils.getResponseObject("Delete Student data");
+//		try {
+//			
+//
+//			Student student=getStudent(StudentId);
+//			student.setActive(false);
+//		
+//			entityManager.flush();
+//
+//			response.setStatus(StatusCode.SUCCESS.name());	
+//		} 
+//		catch(Exception ex)
+//		{
+//			logger.error("Exception in deleteStudent", ex);
+//			response.setStatus(StatusCode.ERROR.name());
+//			response.setErrors(ex.getMessage());
+//		}
+//		return response;	
+//	}
 	
-	@Override
-	public boolean isStudentNameExist(String studentName)throws Exception {
-		
-		try {
-			String hql = "FROM User WHERE firstName=?1 and isActive=true";
-			int count = entityManager.createQuery(hql).setParameter(0, studentName).getResultList().size();
-			return count > 0 ? true : false;
-		} catch (Exception e) {
-			logger.error("Exception in isstudentNameExist: ", e);
-		}
-		return false;
-	}
+//	@Override
+//	public boolean isStudentNameExist(String studentName)throws Exception {
+//		
+//		try {
+//			String hql = "FROM User WHERE firstName=?1 and isActive=true";
+//			int count = entityManager.createQuery(hql).setParameter(0, studentName).getResultList().size();
+//			return count > 0 ? true : false;
+//		} catch (Exception e) {
+//			logger.error("Exception in isstudentNameExist: ", e);
+//		}
+//		return false;
+//	}
 	
 	@Override
 	public Student getStudent(String studentfirstName) throws Exception {
@@ -128,18 +128,18 @@ public class StudentDAOImpl implements StudentDAO {
 	}
 	}
 	
-	@Override
-	public boolean isfirstNameExist(String firstName) throws Exception {
-		try {
-			String hql = "FROM Student WHERE fullname=?1 and  isActive=true ";
-			int count = entityManager.createQuery(hql).setParameter(1, firstName).getResultList().size();
-			System.out.println(count);
-			return count > 0 ? true : false;
-		} catch (Exception e) {
-			logger.error("Exception in isfullnameExist: ", e);
-		}
-		return false;
-	}
+//	@Override
+//	public boolean isfirstNameExist(String firstName) throws Exception {
+//		try {
+//			String hql = "FROM Student WHERE firstName=?1 and  isActive=true ";
+//			int count = entityManager.createQuery(hql).setParameter(1, firstName).getResultList().size();
+//			System.out.println(count);
+//			return count > 0 ? true : false;
+//		} catch (Exception e) {
+//			logger.error("Exception in isfirstNameExist: ", e);
+//		}
+//		return false;
+//	}
 
 	
 	@Override
@@ -186,6 +186,7 @@ public class StudentDAOImpl implements StudentDAO {
 	}
 		return null;
 	}
+
 }
 
 

@@ -38,10 +38,10 @@ public class StudentServiceImpl implements StudentService{
 			student.setLastName(studentModel.getLastName());
 			student.setEmail(studentModel.getEmail());
 			student.setContactNo(studentModel.getContactNo());
-            //student.setPassword(CommonUtils.encriptString(studentModel.getPassword()));
-            //student.setConfirmPassword(CommonUtils.encriptString(studentModel.getConfirmPassword()));
-			student.setPassword(studentModel.getPassword());
-			student.setConfirmPassword(studentModel.getConfirmPassword());
+            student.setPassword(CommonUtils.encriptString(studentModel.getPassword()));
+            student.setConfirmPassword(CommonUtils.encriptString(studentModel.getConfirmPassword()));
+//			student.setPassword(studentModel.getPassword());
+//			student.setConfirmPassword(studentModel.getConfirmPassword());
 			student.setGender(studentModel.getGender());
 			student.setActive(true);
 			
@@ -80,9 +80,9 @@ public class StudentServiceImpl implements StudentService{
 			System.out.println(student.getFirstName());
 			if (student != null) {
 				String password = CommonUtils.generateRandomId();
-				//String password = "kalal";
 				
 				String status = studentDAO.forgotPassword(student.getStdId(), CommonUtils.encriptString(password));
+//				String status = studentDAO.forgotPassword(student.getStdId(),password);
 				if (status.equals(StatusCode.SUCCESS.name())) {
 					String email=student.getEmail();
 					String pass=password;
@@ -97,28 +97,15 @@ public class StudentServiceImpl implements StudentService{
 		}
 	}
 
-//	@Override
-//	public StudentModel authenticate(StudentModel studentModel) throws Exception {
-//		studentModel.setPassword(CommonUtils.encriptString(studentModel.getPassword()));
-//		Student student = new Student();
-//		BeanUtils.copyProperties(studentModel, student);
-//		System.out.println(studentModel.getEmail());
-//		System.out.println(studentModel.getContactNo());
-//
-//		student = studentDAO.authenticate(student);
-//		if (student == null)
-//			return null;
-//		BeanUtils.copyProperties(student, studentModel);
-//		return studentModel;
-//	}
 	@Override
 	public StudentModel authenticate(StudentModel studentModel) throws Exception {
-        //studentModel.setPassword(CommonUtils.encriptString(studentModel.getPassword()));
+//        studentModel.setPassword(CommonUtils.encriptString(studentModel.getPassword()));
 		studentModel.setPassword(studentModel.getPassword());
+		studentModel.setEmail(studentModel.getEmail());
 		Student student = new Student();
 		BeanUtils.copyProperties(studentModel, student);
 		System.out.println(studentModel.getEmail());
-		System.out.println(studentModel.getContactNo());
+		System.out.println(studentModel.getPassword());
 
 		student = studentDAO.authenticate(student);
 		if (student == null)

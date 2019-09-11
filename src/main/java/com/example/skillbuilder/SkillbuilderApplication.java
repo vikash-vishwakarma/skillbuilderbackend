@@ -9,7 +9,7 @@ public class SkillbuilderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SkillbuilderApplication.class, args);
 		
-		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<booted>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<booted>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	}
 
 }
